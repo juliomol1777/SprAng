@@ -1,3 +1,7 @@
+
+<h1>{{titulo}}</h1>
+<div class="container p-2">
+<button class="btn btn-info" type="button" [routerLink]="['/estudiantes/form']">Nuevo Estudiante</button>
 <table class="table">
     <thead class="thead-dark">
       <tr>
@@ -6,6 +10,8 @@
         <th scope="col">Apellido</th>
         <th scope="col">Email</th>
         <th scope="col">Nota</th>
+        <th scope="col">Editar</th>
+        <th scope="col">Eliminar</th>
       </tr>
     </thead>
     <tbody>
@@ -15,6 +21,9 @@
         <td>{{estudiante.apellido}}</td>
         <td>{{estudiante.email}}</td>
         <td>{{estudiante.nota}}</td>
+        <td><button type="button" name="button" class="btn btn-primary" [routerLink]="['/estudiantes/form', estudiante.id]">Editar</button></td>
+        <td><button type="button" name="button" class="btn btn-danger" (click)="delete(estudiante)">Eliminar</button></td>
       </tr>
     </tbody>
-  </table>
+  </table> 
+</div>

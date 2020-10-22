@@ -18,6 +18,14 @@ export class EstudiantesComponent implements OnInit {
   ngOnInit(): void {
     this.estudianteServicio.getAll().subscribe(
       e => this.estudiantes=e
-    )
+    );
   }
+
+    delete(estudiante:Estudiante):void{
+      this.estudianteServicio.delete(estudiante.id).subscribe(
+        res => this.estudianteServicio.getAll().subscribe(
+          resp => this.estudiantes= resp
+        )
+      )
+    }
 }
